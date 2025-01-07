@@ -9,6 +9,7 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue userQueue() {
-        return new Queue("userQueue", true); // Durable queue
+
+        return new Queue("userQueue", true);
     }
 }

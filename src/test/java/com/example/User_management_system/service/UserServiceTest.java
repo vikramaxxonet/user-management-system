@@ -27,15 +27,16 @@ public class UserServiceTest {
 
     @Test
     public void testCreateUser() {
+        User user = new User();
+        user.setName("Vikram");
+        user.setEmail("vikram@example.com");
 
-       User user = new User();
+        when(userRepository.save(user)).thenReturn(user);
 
-       when(userRepository.save(user)).thenReturn(user);
+        User createdUser = userService.createUser(user);
 
-        User createuser = userService.createUser(user);
-
-        assertEquals("Vikram",createuser.getName());
-
+        assertEquals("Vikram", createdUser.getName());
     }
+
 }
 
